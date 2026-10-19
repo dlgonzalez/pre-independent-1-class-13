@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pre-Independent 1 | Unit 3 – Class 13</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Poppins:wght@500;700;900&display=swap" rel="stylesheet" />
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #0f172a; }
+        h1, h2, h3, h4, h5, .font-poppins { font-family: 'Poppins', sans-serif; }
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+        
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        
+        .glass-panel { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.5); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08); }
+        .correct-highlight { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
+        .wrong-highlight { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+        
+        .toast { position: fixed; bottom: 20px; right: 20px; padding: 15px 25px; border-radius: 8px; color: white; font-weight: bold; opacity: 0; transition: opacity 0.3s, transform 0.3s; transform: translateY(20px); pointer-events: none; z-index: 1000; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); }
+        .toast.show { opacity: 1; transform: translateY(0); }
+        .toast-success { background-color: #10b981; }
+        .toast-error { background-color: #ef4444; }
+        .toast-info { background-color: #3b82f6; }
+        
+        .transition-box { background: linear-gradient(135deg, #eef2ff, #e0e7ff); border-left: 4px solid #6366f1; border-radius: 12px; padding: 16px 20px; margin-bottom: 24px; }
+        .transition-box h4 { color: #3730a3; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+        .transition-box p { color: #334155; font-size: 0.9rem; line-height: 1.6; }
+        
+        .instruction-box { background: #fffbeb; border-left: 4px solid #f59e0b; border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; }
+        .instruction-box h4 { color: #b45309; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .instruction-box ol, .instruction-box ul { color: #334155; font-size: 0.88rem; line-height: 1.7; padding-left: 20px; }
+        
+        .timer-active { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+        
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .oopt-input { border-bottom: 2px solid #cbd5e1; background: transparent; outline: none; text-align: center; font-weight: bold; color: #4f46e5; transition: border-color 0.2s; }
+        .oopt-input:focus { border-color: #4f46e5; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <header class="bg-slate-900 text-white shadow-2xl relative overflow-hidden border-b-4 border-indigo-500">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -translate-y-1/2 translate-x-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 translate-y-1/3 -translate-x-1/4"></div>
+        <div class="max-w-7xl mx-auto px-6 py-10 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                <div class="lg:col-span-2 flex items-center gap-6">
+                    <div class="hidden sm:flex h-20 w-20 bg-white/10 rounded-2xl border border-white/20 items-center justify-center text-4xl shadow-inner backdrop-blur-sm">
+                        🤖
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="bg-indigo-500 text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">Level B1</span>
+                            <span class="text-indigo-300 text-sm font-bold uppercase tracking-widest"><i class="fa-solid fa-microchip mr-2"></i>Pre-Independent 1</span>
+                        </div>
+                        <h1 class="text-3xl md:text-4xl font-black font-poppins tracking-tight mb-2 drop-shadow-md">
+                            Unit 3: Think About It
+                        </h1>
+                        <p class="text-slate-300 text-lg font-medium tracking-wide">
+                            <span class="text-indigo-400 mr-2 font-bold">Class 13</span> • AI & Perfect Progressives
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-slate-800/80 p-6 rounded-2xl backdrop-blur-md border border-slate-700 shadow-xl">
+                    <h2 class="text-lg font-black text-indigo-400 mb-3 flex items-center gap-2 uppercase tracking-wide"><span class="text-xl">🎯</span> Mission</h2>
+                    <ul class="text-sm text-slate-200 space-y-2 font-medium">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-indigo-500 mt-1 mr-3"></i> <span><strong>Master</strong> word formation and open cloze gaps.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-indigo-500 mt-1 mr-3"></i> <span><strong>Reflect</strong> on the everyday AI you already use.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-indigo-500 mt-1 mr-3"></i> <span><strong>Discover</strong> the Present Perfect Progressive tense.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-indigo-500 mt-1 mr-3"></i> <span><strong>Analyze</strong> visual emoji stories using grammar.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-indigo-500 mt-1 mr-3"></i> <span><strong>Share</strong> fun AI tricks and practical tools.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex space-x-2 overflow-x-auto py-4 no-scrollbar" id="tab-container">
+                <button onclick="switchTab('tab0')" id="btn-tab0" class="px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 bg-slate-800 text-white shadow-md whitespace-nowrap">0. 🏭 The 3-Level Challenge</button>
+                <button onclick="switchTab('tab1')" id="btn-tab1" class="px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 text-slate-500 hover:bg-slate-100 whitespace-nowrap">1. 🤖 Everyday AI</button>
+                <button onclick="switchTab('tab2')" id="btn-tab2" class="px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 text-slate-500 hover:bg-slate-100 whitespace-nowrap">2. ⏳ Grammar & Story</button>
+                <button onclick="switchTab('tab3')" id="btn-tab3" class="px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 text-slate-500 hover:bg-slate-100 whitespace-nowrap">3. 🗣️ AI Show & Tell</button>
+                <button onclick="switchTab('tab4')" id="btn-tab4" class="px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 text-slate-500 hover:bg-slate-100 whitespace-nowrap">4. 🏁 Wrap-Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+
+        <section id="tab0" class="tab-content active fade-in">
+            <div class="glass-panel p-8 rounded-3xl">
+                <div class="transition-box">
+                    <h4><i class="fa-solid fa-gamepad"></i> Warm-Up: The 3-Level Challenge</h4>
+                    <p>Let's review Word Formation (Noun Suffixes) from our last class and test your OOPT skills. Progress through all three levels to unlock the next section!</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    <button onclick="switchGameLevel(1)" id="gl-btn-1" class="bg-indigo-600 text-white font-bold py-3 rounded-xl shadow-md border-b-4 border-indigo-800 transition-all hover:-translate-y-1">Level 1: Word Factory</button>
+                    <button onclick="switchGameLevel(2)" id="gl-btn-2" class="bg-slate-200 text-slate-600 font-bold py-3 rounded-xl shadow-sm border-b-4 border-slate-300 transition-all hover:-translate-y-1">Level 2: Context Sentences</button>
+                    <button onclick="switchGameLevel(3)" id="gl-btn-3" class="bg-slate-200 text-slate-600 font-bold py-3 rounded-xl shadow-sm border-b-4 border-slate-300 transition-all hover:-translate-y-1">Level 3: OOPT Open Cloze</button>
+                </div>
+
+                <div class="bg-slate-900 rounded-3xl p-8 shadow-2xl relative overflow-hidden border-4 border-indigo-500 min-h-[400px]">
+                    <div class="flex justify-between items-center mb-6 border-b border-slate-700 pb-4">
+                        <span class="text-indigo-400 font-bold uppercase tracking-widest text-sm" id="game-title">Level 1: Word Factory</span>
+                        <span class="text-white font-black text-xl bg-slate-800 px-4 py-1 rounded-full border border-slate-600">Score: <span id="global-score" class="text-emerald-400">0</span></span>
+                    </div>
+
+                    <!-- Level 1: Word Factory -->
+                    <div id="game-level-1" class="game-stage block">
+                        <p class="text-center text-slate-300 mb-6">Look at the ROOT WORD and the target form needed. Click the correct transformed word!</p>
+                        <div class="max-w-2xl mx-auto text-center">
+                            <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 mb-6 shadow-inner flex flex-col items-center">
+                                <p id="wf-target-form" class="text-amber-400 font-bold uppercase tracking-widest mb-2 text-sm"></p>
+                                <p id="wf-root-word" class="text-4xl md:text-5xl font-black text-white leading-relaxed font-poppins">Click Start!</p>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 hidden" id="wf-buttons">
+                                <button onclick="checkWF(0)" class="bg-white text-indigo-900 font-black py-4 rounded-xl shadow-[0_6px_0_#cbd5e1] hover:bg-indigo-50 active:translate-y-[6px] active:shadow-none transition text-lg"></button>
+                                <button onclick="checkWF(1)" class="bg-white text-indigo-900 font-black py-4 rounded-xl shadow-[0_6px_0_#cbd5e1] hover:bg-indigo-50 active:translate-y-[6px] active:shadow-none transition text-lg"></button>
+                                <button onclick="checkWF(2)" class="bg-white text-indigo-900 font-black py-4 rounded-xl shadow-[0_6px_0_#cbd5e1] hover:bg-indigo-50 active:translate-y-[6px] active:shadow-none transition text-lg"></button>
+                            </div>
+                            <button onclick="startWF()" id="wf-start-btn" class="bg-indigo-500 hover:bg-indigo-400 text-white font-black py-4 px-12 rounded-full text-xl shadow-[0_6px_0_#3730a3] active:translate-y-[6px] active:shadow-none transition-all mt-2">START FACTORY</button>
+                            <button onclick="switchGameLevel(2)" id="l1-next-level" class="hidden mx-auto mt-4 bg-emerald-500 hover:bg-emerald-400 text-white font-bold py-2 px-8 rounded-full shadow">Go to Level 2 ➡</button>
+                        </div>
+                    </div>
+
+                    <!-- Level 2: Context Sentences -->
+                    <div id="game-level-2" class="game-stage hidden">
+                        <p class="text-center text-slate-300 mb-6">Read the sentence. Click the correct word to fill in the blank.</p>
+                        <div class="max-w-3xl mx-auto text-center">
+                            <h3 id="l2-progress" class="text-slate-500 font-bold text-sm mb-2 uppercase tracking-wider">Round 1/10</h3>
+                            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 mb-6 shadow-inner">
+                                <p id="l2-statement" class="text-2xl font-medium text-white leading-relaxed">"We need a good _________ (manage) to lead the team."</p>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="l2-buttons">
+                                <!-- Populated by JS -->
+                            </div>
+                            <button onclick="switchGameLevel(3)" id="l2-next-level" class="hidden mx-auto mt-6 bg-emerald-500 hover:bg-emerald-400 text-white font-bold py-2 px-8 rounded-full shadow">Go to Level 3 ➡</button>
+                        </div>
+                    </div>
+
+                    <!-- Level 3: OOPT Open Cloze -->
+                    <div id="game-level-3" class="game-stage hidden">
+                        <p class="text-center text-slate-300 mb-6">OOPT Practice: Read the text and type the correct NOUN or ADJECTIVE form of the hidden root word. Hover over the <i class="fa-solid fa-circle-question text-indigo-400"></i> if you need a hint!</p>
+                        <div class="max-w-3xl mx-auto bg-slate-50 rounded-2xl p-8 font-serif text-lg leading-loose text-slate-800 shadow-inner">
+                            The rapid <input type="text" id="cloze1" class="oopt-input w-28" autocomplete="off"> 
+                            <div class="group relative inline-block cursor-help"><i class="fa-solid fa-circle-question text-indigo-400 mx-1"></i><div class="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-slate-800 text-white font-sans text-xs p-2 rounded shadow-lg whitespace-nowrap z-10 font-bold">Root: DEVELOP</div></div> 
+                            of Artificial Intelligence is changing the world. A good <input type="text" id="cloze2" class="oopt-input w-20" autocomplete="off">
+                            <div class="group relative inline-block cursor-help"><i class="fa-solid fa-circle-question text-indigo-400 mx-1"></i><div class="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-slate-800 text-white font-sans text-xs p-2 rounded shadow-lg whitespace-nowrap z-10 font-bold">Root: MANAGE</div></div> 
+                            knows how to use AI to help their team. It requires human <input type="text" id="cloze3" class="oopt-input w-24" autocomplete="off">
+                            <div class="group relative inline-block cursor-help"><i class="fa-solid fa-circle-question text-indigo-400 mx-1"></i><div class="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-slate-800 text-white font-sans text-xs p-2 rounded shadow-lg whitespace-nowrap z-10 font-bold">Root: CREATIVE</div></div> 
+                            to guide it. AI helps us make a better <input type="text" id="cloze4" class="oopt-input w-20" autocomplete="off">
+                            <div class="group relative inline-block cursor-help"><i class="fa-solid fa-circle-question text-indigo-400 mx-1"></i><div class="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-slate-800 text-white font-sans text-xs p-2 rounded shadow-lg whitespace-nowrap z-10 font-bold">Root: DECIDE</div></div> 
+                            every day. However, some worry about <input type="text" id="cloze5" class="oopt-input w-28" autocomplete="off">
+                            <div class="group relative inline-block cursor-help"><i class="fa-solid fa-circle-question text-indigo-400 mx-1"></i><div class="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-slate-800 text-white font-sans text-xs p-2 rounded shadow-lg whitespace-nowrap z-10 font-bold">Root: EMPLOY</div></div> 
+                            and if robots will take our jobs. We need the <input type="text" id="cloze6" class="oopt-input w-20" autocomplete="off">
+                            <div class="group relative inline-block cursor-help"><i class="fa-solid fa-circle-question text-indigo-400 mx-1"></i><div class="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-slate-800 text-white font-sans text-xs p-2 rounded shadow-lg whitespace-nowrap z-10 font-bold">Root: ABLE</div></div> 
+                            to adapt. AI is extremely <input type="text" id="cloze7" class="oopt-input w-24" autocomplete="off">
+                            <div class="group relative inline-block cursor-help"><i class="fa-solid fa-circle-question text-indigo-400 mx-1"></i><div class="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-slate-800 text-white font-sans text-xs p-2 rounded shadow-lg whitespace-nowrap z-10 font-bold">Root: POWER</div></div> 
+                            and provides a fast <input type="text" id="cloze8" class="oopt-input w-20" autocomplete="off">
+                            <div class="group relative inline-block cursor-help"><i class="fa-solid fa-circle-question text-indigo-400 mx-1"></i><div class="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-slate-800 text-white font-sans text-xs p-2 rounded shadow-lg whitespace-nowrap z-10 font-bold">Root: SOLVE</div></div> 
+                            to complex issues. A deep <input type="text" id="cloze9" class="oopt-input w-20" autocomplete="off">
+                            <div class="group relative inline-block cursor-help"><i class="fa-solid fa-circle-question text-indigo-400 mx-1"></i><div class="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-slate-800 text-white font-sans text-xs p-2 rounded shadow-lg whitespace-nowrap z-10 font-bold">Root: THINK</div></div> 
+                            understands its limits, so humanity isn't left in the <input type="text" id="cloze10" class="oopt-input w-20" autocomplete="off">
+                            <div class="group relative inline-block cursor-help"><i class="fa-solid fa-circle-question text-indigo-400 mx-1"></i><div class="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-slate-800 text-white font-sans text-xs p-2 rounded shadow-lg whitespace-nowrap z-10 font-bold">Root: DARK</div></div>.
+                            
+                            <div class="mt-8 text-center">
+                                <button onclick="checkCloze()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-8 rounded-full shadow-md transition font-sans tracking-wide">Check Answers</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="tab1" class="tab-content fade-in">
+            <div class="glass-panel p-8 rounded-3xl">
+                <div class="transition-box border-l-cyan-500">
+                    <h4 class="text-cyan-700"><i class="fa-solid fa-mobile-screen"></i> Everyday AI Reflections</h4>
+                    <p>We often think of AI as sci-fi robots, but you use artificial intelligence every single day. Let's talk about the AI in your pocket before we jump into the grammar.</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow border border-slate-200 mb-8">
+                    <h3 class="font-black text-slate-800 text-xl mb-6 border-b border-slate-100 pb-2"><i class="fa-solid fa-comments text-cyan-500 mr-2"></i> Down to Earth Discussion</h3>
+                    <p class="text-slate-600 mb-6 font-medium">Discuss these questions honestly with your partner for 5 minutes:</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-cyan-50 p-6 rounded-xl border border-cyan-100 shadow-sm relative">
+                            <div class="absolute -top-3 -right-3 text-3xl">📱</div>
+                            <p class="font-bold text-cyan-900 mb-2">1. The Daily Tools</p>
+                            <p class="text-sm text-slate-700">What is an everyday app that uses AI (like TikTok algorithms, Google Maps routing, FaceID, or Spotify recommendations) that you absolutely couldn't live without?</p>
+                        </div>
+                        <div class="bg-rose-50 p-6 rounded-xl border border-rose-100 shadow-sm relative">
+                            <div class="absolute -top-3 -right-3 text-3xl">🤫</div>
+                            <p class="font-bold text-rose-900 mb-2">2. The Shortcut</p>
+                            <p class="text-sm text-slate-700">Have you ever used an AI tool (like ChatGPT or a translator) to cheat or take a massive shortcut on homework, an email, or a task? Did anyone find out?</p>
+                        </div>
+                        <div class="bg-amber-50 p-6 rounded-xl border border-amber-100 shadow-sm relative md:col-span-2">
+                            <div class="absolute -top-3 -right-3 text-3xl">🤦‍♂️</div>
+                            <p class="font-bold text-amber-900 mb-2">3. The Machine Mistake</p>
+                            <p class="text-sm text-slate-700">Has an algorithm or AI ever made a funny or terrible mistake with you? (e.g., terrible autocorrect, a GPS taking you to the wrong city, a crazy shopping recommendation).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center p-6 next-section-btn rounded-2xl shadow-sm transition-colors cursor-pointer" onclick="switchTab('tab2')">
+                    <p class="text-slate-600 font-bold text-lg">Let's look at the grammar we use to describe our AI habits! 👉 <span class="text-indigo-600 font-black">Go to Grammar & Story</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tab2" class="tab-content fade-in">
+            <div class="glass-panel p-8 rounded-3xl">
+                <div class="transition-box border-l-indigo-500">
+                    <h4 class="text-indigo-700"><i class="fa-solid fa-cogs"></i> Grammar Core: Present Perfect Progressive</h4>
+                    <p>We use this tense to connect the past and the present. It emphasizes the <strong>duration</strong> of an activity or the <strong>result</strong> of a recent continuous action.</p>
+                </div>
+
+                <!-- Visual Explanation -->
+                <div class="bg-slate-900 rounded-3xl shadow-2xl overflow-hidden mb-12 border-4 border-slate-800">
+                    <div class="p-6 text-center bg-slate-800 border-b border-slate-700">
+                        <h3 class="text-2xl font-black text-white tracking-wide">The Anatomy of the Tense</h3>
+                        <p class="text-indigo-300 font-mono text-xl mt-2 bg-slate-900 inline-block px-4 py-2 rounded-lg">Subject + HAVE/HAS + BEEN + Verb(-ing)</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-700">
+                        <!-- Use Case 1 -->
+                        <div class="p-8">
+                            <h4 class="text-emerald-400 font-bold text-lg uppercase tracking-wider mb-2">Use Case 1: Duration</h4>
+                            <p class="text-slate-300 text-sm mb-4">An activity that started in the past and is <strong>still in progress now</strong>.</p>
+                            
+                            <div class="bg-slate-800 p-4 rounded-xl border border-slate-600 relative overflow-hidden">
+                                <div class="text-4xl mb-2">🧑‍💻☕</div>
+                                <p class="text-white text-sm font-medium italic">"Alex started coding at 9 AM. It is now 5 PM."</p>
+                                <p class="text-emerald-300 font-bold mt-2">➡ He <span class="underline">has been coding</span> for 8 hours.</p>
+                            </div>
+                        </div>
+
+                        <!-- Use Case 2 -->
+                        <div class="p-8">
+                            <h4 class="text-rose-400 font-bold text-lg uppercase tracking-wider mb-2">Use Case 2: Recent Result</h4>
+                            <p class="text-slate-300 text-sm mb-4">An activity that recently stopped, but has a <strong>visible result now</strong>.</p>
+                            
+                            <div class="bg-slate-800 p-4 rounded-xl border border-slate-600 relative overflow-hidden">
+                                <div class="text-4xl mb-2">🏃‍♀️🥵</div>
+                                <p class="text-white text-sm font-medium italic">"Sarah is exhausted and sweating right now."</p>
+                                <p class="text-rose-300 font-bold mt-2">➡ Because she <span class="underline">has been running</span>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FOR vs SINCE -->
+                    <div class="p-6 bg-slate-800 border-t border-slate-700">
+                        <h4 class="text-amber-400 font-bold text-center uppercase tracking-widest mb-4">Time Markers: For vs. Since</h4>
+                        <div class="flex flex-col md:flex-row gap-4 justify-center">
+                            <div class="bg-slate-900 p-4 rounded-lg flex-1 text-center border border-slate-700">
+                                <span class="text-amber-300 font-black text-xl">FOR</span>
+                                <p class="text-slate-400 text-xs mt-1">A duration/length of time</p>
+                                <p class="text-white text-sm font-bold mt-2">for 3 hours, for 10 years, for a long time</p>
+                            </div>
+                            <div class="bg-slate-900 p-4 rounded-lg flex-1 text-center border border-slate-700">
+                                <span class="text-amber-300 font-black text-xl">SINCE</span>
+                                <p class="text-slate-400 text-xs mt-1">A specific starting point in the past</p>
+                                <p class="text-white text-sm font-bold mt-2">since 1950, since 8 AM, since Monday</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEW: Emoji Translation Activity -->
+                <h3 class="text-2xl font-bold text-slate-800 mb-4"><i class="fa-solid fa-face-smile text-amber-500"></i> Practice 1: Translate the Emoji</h3>
+                <div class="instruction-box">
+                    <h4>Instructions</h4>
+                    <p class="text-sm">Look at the emoji story and the visible result. Select the correct Present Perfect Progressive sentence that explains <strong>why</strong>.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-12" id="emoji-container">
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 text-center">
+                        <div class="text-4xl mb-2">☔💧</div>
+                        <p class="text-xs text-slate-600 italic mb-2 h-8">"The streets are wet."</p>
+                        <select class="w-full border border-slate-300 rounded p-1 text-xs outline-none focus:border-indigo-500 font-bold text-slate-700" onchange="checkEmoji(this, 'b')">
+                            <option value="">Because...</option>
+                            <option value="a">it has raining.</option>
+                            <option value="b">it has been raining.</option>
+                            <option value="c">it is raining.</option>
+                        </select>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 text-center">
+                        <div class="text-4xl mb-2">👨‍🍳🍝</div>
+                        <p class="text-xs text-slate-600 italic mb-2 h-8">"The kitchen is a huge mess."</p>
+                        <select class="w-full border border-slate-300 rounded p-1 text-xs outline-none focus:border-indigo-500 font-bold text-slate-700" onchange="checkEmoji(this, 'c')">
+                            <option value="">Because...</option>
+                            <option value="a">he has been cooked.</option>
+                            <option value="b">he have been cooking.</option>
+                            <option value="c">he has been cooking.</option>
+                        </select>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 text-center">
+                        <div class="text-4xl mb-2">😡⏳</div>
+                        <p class="text-xs text-slate-600 italic mb-2 h-8">"I am very angry at you."</p>
+                        <select class="w-full border border-slate-300 rounded p-1 text-xs outline-none focus:border-indigo-500 font-bold text-slate-700" onchange="checkEmoji(this, 'a')">
+                            <option value="">Because...</option>
+                            <option value="a">I've been waiting for hours.</option>
+                            <option value="b">I has been waiting for hours.</option>
+                            <option value="c">I waited for hours.</option>
+                        </select>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 text-center">
+                        <div class="text-4xl mb-2">🏃‍♀️🥵</div>
+                        <p class="text-xs text-slate-600 italic mb-2 h-8">"She is sweating and tired."</p>
+                        <select class="w-full border border-slate-300 rounded p-1 text-xs outline-none focus:border-indigo-500 font-bold text-slate-700" onchange="checkEmoji(this, 'c')">
+                            <option value="">Because...</option>
+                            <option value="a">she has ran.</option>
+                            <option value="b">she have been running.</option>
+                            <option value="c">she has been running.</option>
+                        </select>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 text-center">
+                        <div class="text-4xl mb-2">👩‍💻👀</div>
+                        <p class="text-xs text-slate-600 italic mb-2 h-8">"Her eyes are completely red."</p>
+                        <select class="w-full border border-slate-300 rounded p-1 text-xs outline-none focus:border-indigo-500 font-bold text-slate-700" onchange="checkEmoji(this, 'b')">
+                            <option value="">Because...</option>
+                            <option value="a">she has been look at a screen.</option>
+                            <option value="b">she has been looking at a screen.</option>
+                            <option value="c">she is looking at a screen.</option>
+                        </select>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 text-center">
+                        <div class="text-4xl mb-2">🚗🔧</div>
+                        <p class="text-xs text-slate-600 italic mb-2 h-8">"His hands are covered in oil."</p>
+                        <select class="w-full border border-slate-300 rounded p-1 text-xs outline-none focus:border-indigo-500 font-bold text-slate-700" onchange="checkEmoji(this, 'a')">
+                            <option value="">Because...</option>
+                            <option value="a">he has been fixing the car.</option>
+                            <option value="b">he has been fix the car.</option>
+                            <option value="c">he is fixing the car.</option>
+                        </select>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 text-center">
+                        <div class="text-4xl mb-2">🧹✨</div>
+                        <p class="text-xs text-slate-600 italic mb-2 h-8">"The house smells like bleach."</p>
+                        <select class="w-full border border-slate-300 rounded p-1 text-xs outline-none focus:border-indigo-500 font-bold text-slate-700" onchange="checkEmoji(this, 'c')">
+                            <option value="">Because...</option>
+                            <option value="a">they have clean.</option>
+                            <option value="b">they has been cleaning.</option>
+                            <option value="c">they have been cleaning.</option>
+                        </select>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 text-center">
+                        <div class="text-4xl mb-2">🏋️‍♂️💪</div>
+                        <p class="text-xs text-slate-600 italic mb-2 h-8">"His muscles are sore."</p>
+                        <select class="w-full border border-slate-300 rounded p-1 text-xs outline-none focus:border-indigo-500 font-bold text-slate-700" onchange="checkEmoji(this, 'a')">
+                            <option value="">Because...</option>
+                            <option value="a">he has been lifting weights.</option>
+                            <option value="b">he have been lifting weights.</option>
+                            <option value="c">he has been lifted weights.</option>
+                        </select>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 text-center">
+                        <div class="text-4xl mb-2">🥱📚</div>
+                        <p class="text-xs text-slate-600 italic mb-2 h-8">"She keeps falling asleep in class."</p>
+                        <select class="w-full border border-slate-300 rounded p-1 text-xs outline-none focus:border-indigo-500 font-bold text-slate-700" onchange="checkEmoji(this, 'b')">
+                            <option value="">Because...</option>
+                            <option value="a">she has studying all night.</option>
+                            <option value="b">she has been studying all night.</option>
+                            <option value="c">she have been studying all night.</option>
+                        </select>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 text-center">
+                        <div class="text-4xl mb-2">🐕🦴</div>
+                        <p class="text-xs text-slate-600 italic mb-2 h-8">"The rug is covered in pieces of bone."</p>
+                        <select class="w-full border border-slate-300 rounded p-1 text-xs outline-none focus:border-indigo-500 font-bold text-slate-700" onchange="checkEmoji(this, 'c')">
+                            <option value="">Because...</option>
+                            <option value="a">the dog have been chewing.</option>
+                            <option value="b">the dog has chewing.</option>
+                            <option value="c">the dog has been chewing.</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Exercise 2: Form Fixer -->
+                <h3 class="text-2xl font-bold text-slate-800 mb-4 border-t border-slate-200 pt-8"><i class="fa-solid fa-list-check text-indigo-500"></i> Practice 2: Form & Time Markers</h3>
+                <div class="bg-white p-4 rounded-2xl shadow border border-slate-200 mb-6 flex justify-between items-center max-w-sm mx-auto">
+                    <span class="font-bold text-slate-700">Score</span>
+                    <span id="gram1-score" class="font-black text-2xl text-indigo-600">0 / 10</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12" id="gram1-container">
+                    <!-- Populated via JS -->
+                </div>
+
+                <!-- Exercise 3: Sentence Builder -->
+                <h3 class="text-2xl font-bold text-slate-800 mb-4 border-t border-slate-200 pt-8"><i class="fa-solid fa-keyboard text-emerald-500"></i> Practice 3: Sentence Builder</h3>
+                <div class="bg-white p-4 rounded-2xl shadow border border-slate-200 mb-6 flex justify-between items-center max-w-sm mx-auto">
+                    <span class="font-bold text-slate-700">Score</span>
+                    <span id="gram3-score" class="font-black text-2xl text-emerald-600">0 / 10</span>
+                </div>
+                <div class="space-y-4 max-w-4xl mx-auto mb-12" id="gram3-container">
+                    <!-- Populated via JS -->
+                </div>
+
+                <!-- THE STORY TIME INTEGRATION -->
+                <h3 class="text-2xl font-bold text-slate-800 mb-4 border-t border-slate-200 pt-8"><i class="fa-solid fa-book-open text-amber-500"></i> Practice 4: The Exhausted Programmer</h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                    <!-- The Story -->
+                    <div class="bg-amber-50 p-6 rounded-2xl border border-amber-200 shadow-sm leading-relaxed text-slate-800">
+                        <p class="mb-3">Marco is a software developer. He looks terrible today. His eyes are red, his hands are shaking, and he is extremely tired.</p>
+                        <p class="mb-3">Why? Because Marco <strong class="bg-yellow-200 px-1">has been working</strong> on a new artificial intelligence project. He <strong class="bg-yellow-200 px-1">has been coding</strong> <strong class="text-amber-600">for</strong> 48 hours straight. He <strong class="bg-yellow-200 px-1">hasn't been sleeping</strong> at all.</p>
+                        <p class="mb-3">His computer <strong class="bg-yellow-200 px-1">has been running</strong> heavily <strong class="text-amber-600">since</strong> Tuesday morning. Because he needs to stay awake, Marco <strong class="bg-yellow-200 px-1">has been drinking</strong> five cups of coffee a day.</p>
+                    </div>
+
+                    <!-- The 5 Things Task -->
+                    <div class="bg-white rounded-2xl p-6 shadow border border-slate-200">
+                        <h4 class="font-black text-indigo-900 mb-4">Your Turn: The 5 Things Task ✍️</h4>
+                        <p class="text-sm text-slate-600 mb-4">With a partner, write down <strong>5 true sentences for EACH</strong> use of the grammar.</p>
+                        
+                        <div class="space-y-4 text-sm font-medium">
+                            <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200">
+                                <p class="text-emerald-800 mb-2 font-bold"><i class="fa-solid fa-clock"></i> 1. Duration</p>
+                                <p class="text-slate-500 italic text-xs mb-2">Write 5 things you have been doing for a long time.</p>
+                                <textarea class="w-full bg-white border border-emerald-300 rounded p-2 text-xs outline-none focus:border-emerald-500 h-20 resize-none" placeholder="1. I have been studying English since 2020.&#10;2.&#10;3.&#10;4.&#10;5."></textarea>
+                            </div>
+                            <div class="bg-rose-50 p-4 rounded-xl border border-rose-200">
+                                <p class="text-rose-800 mb-2 font-bold"><i class="fa-solid fa-eye"></i> 2. Recent Result</p>
+                                <p class="text-slate-500 italic text-xs mb-2">Write 5 visible results about you right now, and explain why.</p>
+                                <textarea class="w-full bg-white border border-rose-300 rounded p-2 text-xs outline-none focus:border-rose-500 h-20 resize-none" placeholder="1. My eyes hurt because I have been looking at my phone.&#10;2.&#10;3.&#10;4.&#10;5."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="tab3" class="tab-content fade-in">
+            <div class="glass-panel p-8 rounded-3xl">
+                <div class="transition-box border-l-emerald-500">
+                    <h4 class="text-emerald-700"><i class="fa-solid fa-chalkboard-user"></i> Speaking: AI Show and Tell</h4>
+                    <p>Let's make this practical. How are YOU using AI in your real life right now? Work with a partner, explain your tool, and then <strong>teach the class a special trick</strong>.</p>
+                </div>
+
+                <div class="instruction-box mb-8 border-emerald-500 bg-emerald-50">
+                    <h4 class="text-emerald-800"><i class="fa-solid fa-users"></i> The Activity Steps (10 Mins)</h4>
+                    <ol class="list-decimal text-slate-700">
+                        <li><strong>Step 1 (Pick a Tool):</strong> Choose an AI tool you use (ChatGPT, Midjourney, Grammarly, Duolingo Max, etc.).</li>
+                        <li><strong>Step 2 (Duration):</strong> Tell your partner how long you have been using it.</li>
+                        <li><strong>Step 3 (Recent Results):</strong> Explain what it has been helping you do recently.</li>
+                        <li><strong>Step 4 (Show & Tell):</strong> Demonstrate and teach the class exactly how to do a special trick with your AI tool!</li>
+                    </ol>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                    <!-- Organizer / Drafting Boxes -->
+                    <div class="bg-white rounded-2xl p-6 shadow border border-slate-200">
+                        <h3 class="font-black text-emerald-900 text-lg mb-4 border-b border-slate-100 pb-2">Draft Your Presentation ✍️</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="text-xs font-bold text-slate-500 uppercase tracking-widest">1. The AI Tool</label>
+                                <input type="text" class="w-full border-b-2 border-slate-300 outline-none focus:border-emerald-500 py-1 font-bold text-emerald-700" placeholder="e.g., ChatGPT, Midjourney...">
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-slate-500 uppercase tracking-widest">2. Duration (Since / For)</label>
+                                <input type="text" class="w-full border-b-2 border-slate-300 outline-none focus:border-emerald-500 py-1 font-bold text-emerald-700" placeholder="e.g., I have been using it since January.">
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-slate-500 uppercase tracking-widest">3. Recent Results</label>
+                                <textarea class="w-full border border-slate-300 rounded outline-none focus:border-emerald-500 p-2 text-sm text-slate-700 mt-1 h-12 resize-none" placeholder="e.g., Recently, it has been helping me write emails faster..."></textarea>
+                            </div>
+                            <div class="bg-emerald-50 p-3 rounded-lg border border-emerald-200">
+                                <label class="text-xs font-black text-emerald-800 uppercase tracking-widest flex items-center gap-2"><i class="fa-solid fa-wand-magic-sparkles"></i> 4. The Trick (Show & Tell)</label>
+                                <p class="text-xs text-slate-500 mb-2 italic">Write the exact prompt or steps to teach the class.</p>
+                                <textarea class="w-full border border-slate-300 rounded outline-none focus:border-emerald-500 p-2 text-sm text-slate-700 mt-1 h-20 resize-none" placeholder="e.g., If you want it to sound natural, always type: 'Act as an expert copywriter and rewrite this...'"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timer & Scaffolding -->
+                    <div class="flex flex-col gap-6">
+                        <div class="bg-slate-900 rounded-2xl p-6 text-center shadow-xl text-white border-4 border-emerald-500 flex flex-col justify-center flex-grow">
+                            <h3 class="font-bold text-slate-400 uppercase tracking-widest text-sm mb-2">Speaking Timer</h3>
+                            <div id="speaking-timer-display" class="text-6xl font-black font-mono tracking-tight mb-4 text-emerald-400">10:00</div>
+                            <button onclick="startSpeakingTimer()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold py-3 px-8 rounded-full transition-transform active:scale-95 shadow-[0_4px_0_#047857] mx-auto block">
+                                START SHARING
+                            </button>
+                        </div>
+                        
+                        <details class="bg-white rounded-xl shadow-lg border border-slate-200 p-6">
+                            <summary class="font-black text-indigo-700 text-lg cursor-pointer outline-none hover:text-indigo-800">👀 View Sample Presentation</summary>
+                            <div class="mt-4 text-sm text-slate-700 space-y-3 bg-slate-50 p-4 rounded-lg border border-slate-200">
+                                <p><strong class="text-indigo-600">You:</strong> "I'm planning to be a graphic designer, so <strong class="bg-yellow-200 px-1">I have been using</strong> Midjourney <strong class="bg-yellow-200 px-1">for</strong> a few months."</p>
+                                <p><strong class="text-rose-600">Partner:</strong> "Oh really? What <strong class="bg-yellow-200 px-1">have you been making</strong>?"</p>
+                                <p><strong class="text-indigo-600">You:</strong> "Recently, it <strong class="bg-yellow-200 px-1">has been helping</strong> me generate background ideas for my projects."</p>
+                                <p><strong class="text-indigo-600">You (To Class):</strong> "The trick I want to teach you is about lighting. If you generate an image and it looks fake, always add the phrase 'cinematic lighting, 8k resolution' to your prompt. It instantly makes it look professional!"</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Bonus Track: Fun AI Ideas -->
+                <div class="bg-gradient-to-br from-indigo-900 to-purple-900 rounded-2xl p-6 shadow-xl text-white">
+                        <h3 class="font-black text-amber-400 text-xl mb-4 border-b border-white/20 pb-2"><i class="fa-solid fa-star"></i> Bonus Track: Fun AI Tricks to Try</h3>
+                        <p class="text-sm text-indigo-200 mb-4">If you don't use AI for work, try these fun ideas tonight and report back next class!</p>
+                        
+                        <ul class="space-y-4 text-sm font-medium">
+                            <li class="flex items-start gap-3 bg-white/10 p-3 rounded-lg border border-white/10">
+                                <span class="text-2xl">🐶</span>
+                                <span><strong>The Pet Song:</strong> Ask Suno.com to generate a heavy metal song about your pet dog or cat.</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white/10 p-3 rounded-lg border border-white/10">
+                                <span class="text-2xl">✈️</span>
+                                <span><strong>The Dream Vacation:</strong> Tell ChatGPT your exact budget and ask it to plan a detailed 7-day itinerary for Tokyo, including train routes and hidden restaurants.</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-white/10 p-3 rounded-lg border border-white/10">
+                                <span class="text-2xl">🥗</span>
+                                <span><strong>The Fridge Chef:</strong> Take a photo of the inside of your fridge, upload it to ChatGPT Vision, and ask what dinner you can cook with exactly those ingredients.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- NEW: TAB 4 WRAP UP -->
+        <section id="tab4" class="tab-content fade-in">
+            <div class="glass-panel p-8 rounded-3xl text-center max-w-4xl mx-auto">
+                <div class="transition-box text-left border-l-rose-500">
+                    <h4 class="text-rose-700"><i class="fa-solid fa-magnifying-glass"></i> Wrap-up: The Detective Game</h4>
+                    <p>Let's finish the class by testing the "Recent Result" use case. I will give you the result, and you have to guess the action!</p>
+                </div>
+                
+                <h2 class="text-3xl font-black text-slate-800 mb-6">What have they been doing? 🕵️</h2>
+                
+                <div class="bg-slate-900 rounded-3xl p-8 shadow-2xl relative overflow-hidden mb-8 border-4 border-rose-500 min-h-[250px] flex flex-col justify-center">
+                    <p class="text-rose-400 font-bold uppercase tracking-widest text-sm mb-4 relative z-10">The Result:</p>
+                    
+                    <div class="relative z-10 flex items-center justify-center">
+                        <p id="detective-text" class="text-2xl md:text-4xl font-bold text-white leading-snug">
+                            Click Generate to find a clue!
+                        </p>
+                    </div>
+                </div>
+
+                <button onclick="generateWrapUp()" id="detective-gen-btn" class="bg-rose-500 hover:bg-rose-400 text-white font-black text-2xl py-4 px-12 rounded-full shadow-[0_8px_0_#be123c] transition-transform active:translate-y-[8px] active:shadow-none mb-8">
+                    GENERATE CLUE
+                </button>
+
+                <div class="instruction-box text-left mx-auto max-w-2xl">
+                    <h4><i class="fa-solid fa-bolt"></i> The Rules</h4>
+                    <ul class="list-disc">
+                        <li>The teacher generates a clue (the visible result).</li>
+                        <li>Shout out your guess using the Present Perfect Progressive!</li>
+                        <li><em>Example:</em> "Your hands are covered in flour!" ➡ "You <strong>have been baking</strong> a cake!"</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <script>
+        // --- STREAMING_CHUNK: Core Functions & Navigation ---
+        function switchTab(tabId) {
+            try {
+                document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+                const tabs = ['tab0', 'tab1', 'tab2', 'tab3', 'tab4'];
+                tabs.forEach(id => {
+                    const btn = document.getElementById(`btn-${id}`);
+                    if (btn) btn.className = "px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 text-slate-500 hover:bg-slate-100 whitespace-nowrap";
+                });
+                const target = document.getElementById(tabId);
+                if (target) target.classList.add('active');
+                const activeBtn = document.getElementById(`btn-${tabId}`);
+                if (activeBtn) activeBtn.className = "px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 bg-slate-800 text-white shadow-md whitespace-nowrap";
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } catch (e) { console.log('switchTab error:', e); }
+        }
+
+        function showToast(msg, type = 'success') {
+            try {
+                const toast = document.getElementById('toast');
+                toast.textContent = msg;
+                toast.className = `toast toast-${type} show`;
+                setTimeout(() => toast.classList.remove('show'), 3000);
+            } catch (e) { console.log(e); }
+        }
+
+        let globalTimers = {};
+        function startTimer(displayId, seconds) {
+            if (globalTimers[displayId]) clearInterval(globalTimers[displayId]);
+            let t = seconds;
+            const el = document.getElementById(displayId);
+            el.classList.remove('text-rose-500');
+            el.classList.add('timer-active');
+            
+            globalTimers[displayId] = setInterval(() => {
+                t--;
+                const m = Math.floor(t / 60);
+                const s = t % 60;
+                el.textContent = `${m < 10 ? '0' + m : m}:${s < 10 ? '0' + s : s}`;
+                
+                if (t <= 60) el.classList.add('text-rose-500');
+                if (t <= 0) {
+                    clearInterval(globalTimers[displayId]);
+                    el.textContent = "00:00";
+                    el.classList.remove('timer-active');
+                    showToast('⏰ Time is up!', 'info');
+                }
+            }, 1000);
+        }
+
+        function startSpeakingTimer() { startTimer('speaking-timer-display', 600); }
+
+        // --- STREAMING_CHUNK: Tab 0 Warmup (3 Levels) ---
+        let globalGameScore = 0;
+
+        function updateGlobalScore(points) {
+            globalGameScore += points;
+            document.getElementById('global-score').textContent = globalGameScore;
+        }
+
+        function switchGameLevel(level) {
+            document.querySelectorAll('.game-stage').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('[id^="gl-btn-"]').forEach(btn => {
+                btn.className = "bg-slate-200 text-slate-600 font-bold py-3 rounded-xl shadow-sm border-b-4 border-slate-300 transition-all hover:-translate-y-1";
+            });
+            
+            document.getElementById(`game-level-${level}`).classList.remove('hidden');
+            
+            const titles = {1: "Level 1: Word Factory", 2: "Level 2: Context Sentences", 3: "Level 3: OOPT Open Cloze"};
+            document.getElementById('game-title').textContent = titles[level];
+            
+            const activeBtn = document.getElementById(`gl-btn-${level}`);
+            activeBtn.className = "bg-indigo-600 text-white font-bold py-3 rounded-xl shadow-md border-b-4 border-indigo-800 transition-all hover:-translate-y-1";
+            
+            if(level === 2 && l2Round === 0) initL2();
+        }
+
+        // Level 1: Word Factory
+        const wfData = [
+            { r: "CREATE", f: "(Noun - Person)", opts: ["Creation", "Creator", "Creative"], a: 1 },
+            { r: "CREATE", f: "(Adjective)", opts: ["Creator", "Creation", "Creative"], a: 2 },
+            { r: "CREATE", f: "(Noun - Abstract)", opts: ["Creation", "Creativity", "Both are correct"], a: 2 },
+            { r: "POWER", f: "(Adjective - Positive)", opts: ["Powerless", "Powerful", "Powerer"], a: 1 },
+            { r: "POWER", f: "(Adjective - Negative)", opts: ["Powerful", "Powerless", "Unpower"], a: 1 },
+            { r: "SOLVE", f: "(Adjective)", opts: ["Solvation", "Solver", "Solvable"], a: 2 },
+            { r: "SOLVE", f: "(Noun - Abstract)", opts: ["Solvable", "Solution", "Solver"], a: 1 },
+            { r: "SOLVE", f: "(Noun - Person)", opts: ["Solver", "Solution", "Solvent"], a: 0 },
+            { r: "THINK", f: "(Adjective)", opts: ["Thought", "Thinker", "Thoughtful"], a: 2 },
+            { r: "THINK", f: "(Noun - Person)", opts: ["Thought", "Thinker", "Thoughtful"], a: 1 }
+        ]; // Reduced to 10 for speed to fit 3 levels
+
+        let wfRound = 0;
+        let wfQueue = [];
+        let currentWfObj = null;
+
+        function startWF() {
+            wfQueue = [...wfData].sort(() => Math.random() - 0.5); 
+            wfRound = 1;
+            document.getElementById('wf-start-btn').classList.add('hidden');
+            document.getElementById('wf-buttons').classList.remove('hidden');
+            nextWFRound();
+        }
+
+        function nextWFRound() {
+            if (wfQueue.length === 0) {
+                document.getElementById('wf-target-form').textContent = "";
+                document.getElementById('wf-root-word').textContent = `🎉 Level 1 Complete!`;
+                document.getElementById('wf-buttons').classList.add('hidden');
+                document.getElementById('l1-next-level').classList.remove('hidden');
+                return;
+            }
+            
+            currentWfObj = wfQueue.pop();
+            
+            document.getElementById('wf-root-word').textContent = currentWfObj.r;
+            document.getElementById('wf-target-form').textContent = currentWfObj.f;
+            
+            const btns = document.getElementById('wf-buttons').querySelectorAll('button');
+            btns.forEach((btn, idx) => {
+                btn.textContent = currentWfObj.opts[idx];
+                btn.disabled = false;
+                btn.classList.remove('bg-emerald-500', 'bg-rose-500', 'text-white');
+                btn.classList.add('bg-white', 'text-indigo-900');
+            });
+        }
+
+        function checkWF(guessIdx) {
+            const btns = document.getElementById('wf-buttons').querySelectorAll('button');
+            btns.forEach(b => b.disabled = true);
+            
+            if (guessIdx === currentWfObj.a) {
+                btns[guessIdx].classList.remove('bg-white', 'text-indigo-900');
+                btns[guessIdx].classList.add('bg-emerald-500', 'text-white');
+                updateGlobalScore(10);
+            } else {
+                btns[guessIdx].classList.remove('bg-white', 'text-indigo-900');
+                btns[guessIdx].classList.add('bg-rose-500', 'text-white');
+                btns[currentWfObj.a].classList.remove('bg-white', 'text-indigo-900');
+                btns[currentWfObj.a].classList.add('bg-emerald-500', 'text-white');
+            }
+            
+            wfRound++;
+            setTimeout(nextWFRound, 800);
+        }
+
+        // Level 2: Context Sentences
+        const l2Data = [
+            { q: "We need a good _________ (manage) to lead the team.", opts: ["management", "manager", "manageable"], a: 1 },
+            { q: "The _________ (develop) of the new app took six months.", opts: ["developer", "development", "developness"], a: 1 },
+            { q: "Her _________ (kind) made everyone in the office smile.", opts: ["kindness", "kindity", "kindment"], a: 0 },
+            { q: "It is my final _________ (decide).", opts: ["decider", "decision", "decidement"], a: 1 },
+            { q: "He works as a web _________ (build).", opts: ["building", "builder", "buildor"], a: 1 },
+            { q: "What a beautiful _________ (create)!", opts: ["creation", "creator", "creative"], a: 0 },
+            { q: "The new AI tool shows a lot of _________ (creative).", opts: ["creation", "creativity", "creative"], a: 1 },
+            { q: "We are looking for a reliable _________ (employ).", opts: ["employment", "employee", "employable"], a: 1 },
+            { q: "The _________ (dark) of the cave was frightening.", opts: ["darkity", "darkness", "darkment"], a: 1 },
+            { q: "She has a special _________ (able) to solve complex math problems.", opts: ["ability", "ableness", "ably"], a: 0 }
+        ];
+        let l2Round = 0;
+
+        function initL2() {
+            if (l2Round >= l2Data.length) return;
+            document.getElementById('l2-progress').textContent = `Round ${l2Round + 1}/${l2Data.length}`;
+            
+            const current = l2Data[l2Round];
+            document.getElementById('l2-statement').textContent = current.q;
+            
+            const container = document.getElementById('l2-buttons');
+            container.innerHTML = '';
+            
+            current.opts.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "bg-white text-indigo-900 font-black py-4 px-6 rounded-xl shadow-[0_6px_0_#cbd5e1] hover:bg-indigo-50 active:translate-y-[6px] active:shadow-none transition text-lg";
+                btn.textContent = opt;
+                btn.onclick = () => checkL2(idx, btn, current.a);
+                container.appendChild(btn);
+            });
+        }
+
+        function checkL2(guessIdx, btn, targetIdx) {
+            const container = document.getElementById('l2-buttons');
+            Array.from(container.children).forEach(b => b.disabled = true);
+            
+            if (guessIdx === targetIdx) {
+                btn.classList.add('bg-emerald-500', 'text-white');
+                btn.classList.remove('bg-white', 'text-indigo-900');
+                updateGlobalScore(20);
+                showToast(`Correct!`, 'success');
+            } else {
+                btn.classList.add('bg-rose-500', 'text-white');
+                btn.classList.remove('bg-white', 'text-indigo-900');
+                container.children[targetIdx].classList.add('bg-emerald-500', 'text-white');
+                container.children[targetIdx].classList.remove('bg-white', 'text-indigo-900');
+                showToast(`Wrong suffix!`, 'error');
+            }
+            
+            setTimeout(() => {
+                l2Round++;
+                if(l2Round >= l2Data.length) {
+                    document.getElementById('l2-statement').textContent = "Level 2 Complete!";
+                    document.getElementById('l2-buttons').innerHTML = "";
+                    document.getElementById('l2-next-level').classList.remove('hidden');
+                } else {
+                    initL2();
+                }
+            }, 1000);
+        }
+
+        // Level 3: OOPT Cloze (Word Formation)
+        function checkCloze() {
+            const answers = ["development", "manager", "creativity", "decision", "employment", "ability", "powerful", "solution", "thinker", "darkness"];
+            let correct = 0;
+            
+            for(let i=1; i<=10; i++) {
+                const input = document.getElementById(`cloze${i}`);
+                const val = input.value.trim().toLowerCase();
+                
+                input.style.borderColor = "#cbd5e1";
+                input.style.color = "#4f46e5";
+                
+                if (val === answers[i-1] || (i === 4 && val === 'decisions')) { // accept singular or plural for decision
+                    input.style.borderColor = "#10b981";
+                    input.style.color = "#10b981";
+                    correct++;
+                } else {
+                    input.style.borderColor = "#ef4444";
+                    input.style.color = "#ef4444";
+                }
+            }
+            
+            if(correct === 10) {
+                updateGlobalScore(100);
+                showToast('✅ Perfect Word Formation Score!', 'success');
+            } else {
+                showToast(`❌ ${correct}/10 correct. Check your suffixes!`, 'error');
+            }
+        }
+
+        // --- STREAMING_CHUNK: Emoji Practice 1 ---
+        function checkEmoji(selectEl, correctVal) {
+            selectEl.classList.remove('border-green-500', 'text-green-700', 'border-red-500', 'text-red-700');
+            if (selectEl.value === correctVal) {
+                selectEl.classList.add('border-green-500', 'text-green-700');
+                showToast('Correct Match!', 'success');
+            } else if (selectEl.value !== "") {
+                selectEl.classList.add('border-red-500', 'text-red-700');
+                showToast('Incorrect Grammar!', 'error');
+            }
+        }
+
+        // --- STREAMING_CHUNK: Grammar Tab 2 Data & Logic ---
+        const gram1Data = [
+            { q: "1. I have been studying English ______ three years.", o1: "for", o2: "since", a: 1, exp: "'three years' is a duration (FOR)." },
+            { q: "2. We ______ working on this project since Monday.", o1: "have been", o2: "has been", a: 1, exp: "'We' takes 'have'." },
+            { q: "3. She has been living in London ______ 2018.", o1: "for", o2: "since", a: 2, exp: "'2018' is a specific point in time (SINCE)." },
+            { q: "4. ______ you been waiting a long time?", o1: "Has", o2: "Have", a: 2, exp: "Question with 'you' takes 'Have'." },
+            { q: "5. He has ______ sleeping all morning.", o1: "been", o2: "being", a: 1, exp: "The form requires 'been'." },
+            { q: "6. The machine ______ running properly since yesterday.", o1: "hasn't been", o2: "haven't been", a: 1, exp: "'The machine' (It) takes 'has'." },
+            { q: "7. She has been ______ on her thesis for months.", o1: "working", o2: "worked", a: 1, exp: "The continuous form requires verb-ing." },
+            { q: "8. I have been using this app ______ January.", o1: "for", o2: "since", a: 2, exp: "'January' is a specific starting point (SINCE)." },
+            { q: "9. ______ the software been crashing recently?", o1: "Have", o2: "Has", a: 2, exp: "'The software' (it) takes 'Has'." },
+            { q: "10. They ______ been traveling around Europe since the summer.", o1: "has", o2: "have", a: 2, exp: "'They' takes 'have'." }
+        ];
+
+        let gram1Answered = new Set();
+        let gram1Score = 0;
+
+        function initGram1() {
+            const cont = document.getElementById('gram1-container');
+            gram1Data.forEach((item, i) => {
+                const card = document.createElement('div');
+                card.className = "bg-slate-50 p-4 rounded-xl border border-slate-200";
+                card.innerHTML = `
+                    <p class="font-medium text-slate-800 mb-3">${item.q}</p>
+                    <div class="flex gap-2" id="g1-btns-${i}">
+                        <button onclick="checkG1(${i}, 1)" class="flex-1 bg-white border border-slate-300 py-2 rounded font-bold text-sm text-slate-600 hover:bg-indigo-50">${item.o1}</button>
+                        <button onclick="checkG1(${i}, 2)" class="flex-1 bg-white border border-slate-300 py-2 rounded font-bold text-sm text-slate-600 hover:bg-indigo-50">${item.o2}</button>
+                    </div>
+                    <p id="g1-exp-${i}" class="text-xs font-semibold mt-2 hidden"></p>
+                `;
+                cont.appendChild(card);
+            });
+        }
+
+        function checkG1(i, guess) {
+            if (gram1Answered.has(i)) return;
+            gram1Answered.add(i);
+            const item = gram1Data[i];
+            const btns = document.getElementById(`g1-btns-${i}`).querySelectorAll('button');
+            const exp = document.getElementById(`g1-exp-${i}`);
+            exp.classList.remove('hidden');
+            exp.textContent = item.exp;
+            if (guess === item.a) {
+                btns[guess - 1].classList.add('correct-highlight');
+                exp.classList.add('text-emerald-600');
+                gram1Score++;
+                document.getElementById('gram1-score').textContent = `${gram1Score} / 10`;
+            } else {
+                btns[guess - 1].classList.add('wrong-highlight');
+                btns[item.a - 1].classList.add('correct-highlight');
+                exp.classList.add('text-rose-600');
+            }
+        }
+
+        const gram3Data = [
+            { q: "I ____ ____ ____ (try) to fix this computer for hours.", a: "have been trying" },
+            { q: "She ____ ____ ____ (work) in the AI department since 2021.", a: "has been working" },
+            { q: "They ____ ____ ____ (research) that disease for a long time.", a: "have been researching" },
+            { q: "You look tired! ____ you ____ ____ (run)?", a: "have been running" },
+            { q: "It ____ ____ ____ (rain) since I woke up.", a: "has been raining" },
+            { q: "My phone battery is dead because I ____ ____ ____ (watch) videos.", a: "have been watching" },
+            { q: "My eyes hurt. I ____ ____ ____ (look) at the screen all day.", a: "have been looking" },
+            { q: "The children are dirty. They ____ ____ ____ (play) in the mud.", a: "have been playing" },
+            { q: "He ____ ____ ____ (learn) Japanese for two years.", a: "has been learning" },
+            { q: "We ____ ____ ____ (wait) for the bus since 8 AM.", a: "have been waiting" }
+        ];
+
+        let gram3Score = 0;
+
+        function initGram3() {
+            const cont = document.getElementById('gram3-container');
+            gram3Data.forEach((item, i) => {
+                const row = document.createElement('div');
+                row.className = "bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-4";
+                
+                let simplifiedQ;
+                if(i === 3) {
+                     simplifiedQ = item.q.replace("____ you ____ ____", `<input type="text" id="g3-in-${i}a" class="w-16 border-b-2 border-emerald-300 outline-none text-center px-1 font-bold text-emerald-700"> you <input type="text" id="g3-in-${i}b" class="w-24 border-b-2 border-emerald-300 outline-none text-center px-1 font-bold text-emerald-700">`);
+                } else {
+                     simplifiedQ = item.q.replace(/____ ____ ____/, `<input type="text" id="g3-in-${i}" class="border-b-2 border-emerald-300 outline-none focus:border-emerald-500 w-40 text-center px-1 font-bold text-emerald-700" placeholder="type here">`);
+                }
+
+                row.innerHTML = `
+                    <div class="flex-grow"><p class="font-medium text-slate-800 text-sm md:text-base">${simplifiedQ}</p></div>
+                    <button onclick="checkG3(${i})" class="bg-emerald-500 hover:bg-emerald-400 text-white font-bold py-2 px-6 rounded shadow-sm text-sm transition whitespace-nowrap">Check</button>
+                `;
+                cont.appendChild(row);
+            });
+        }
+
+        function checkG3(i) {
+            if(i === 3) {
+                const inA = document.getElementById(`g3-in-${i}a`);
+                const inB = document.getElementById(`g3-in-${i}b`);
+                if(inA.disabled) return;
+                
+                const valA = inA.value.trim().toLowerCase();
+                const valB = inB.value.trim().toLowerCase().replace(/\s+/g, ' ');
+                
+                inA.classList.remove('border-emerald-300', 'text-emerald-700', 'border-red-500', 'text-red-600');
+                inB.classList.remove('border-emerald-300', 'text-emerald-700', 'border-red-500', 'text-red-600');
+                
+                if((valA === 'have' || valA === "'ve") && valB === 'been running') {
+                    inA.classList.add('border-green-500', 'text-green-600', 'bg-green-50');
+                    inB.classList.add('border-green-500', 'text-green-600', 'bg-green-50');
+                    inA.disabled = true; inB.disabled = true;
+                    gram3Score++;
+                    document.getElementById('gram3-score').textContent = `${gram3Score} / 10`;
+                    showToast('✅ Correct!', 'success');
+                } else {
+                    inA.classList.add('border-red-500', 'text-red-600');
+                    inB.classList.add('border-red-500', 'text-red-600');
+                    showToast('❌ Try again.', 'error');
+                }
+            } else {
+                const input = document.getElementById(`g3-in-${i}`);
+                if(input.disabled) return;
+                
+                const userVal = input.value.trim().toLowerCase().replace(/\s+/g, ' ').replace(/'ve/, 'have').replace(/'s/, 'has');
+                const targetVal = gram3Data[i].a.toLowerCase();
+                
+                input.classList.remove('border-emerald-300', 'text-emerald-700', 'border-red-500', 'text-red-600');
+                
+                if (userVal === targetVal) {
+                    input.classList.add('border-green-500', 'text-green-600', 'bg-green-50');
+                    input.disabled = true;
+                    gram3Score++;
+                    document.getElementById('gram3-score').textContent = `${gram3Score} / 10`;
+                    showToast('✅ Correct!', 'success');
+                } else {
+                    input.classList.add('border-red-500', 'text-red-600');
+                    showToast('❌ Try again. Remember: have/has + been + verb-ing.', 'error');
+                }
+            }
+        }
+
+        // --- STREAMING_CHUNK: Wrap-Up Detective Game ---
+        const wrapUpData = [
+            "Your partner is covered in mud.",
+            "Your partner's hands are blue.",
+            "Your partner is breathing very heavily and sweating.",
+            "Your partner's eyes are completely red.",
+            "Your partner smells like onions and garlic.",
+            "There is sand in your partner's shoes.",
+            "Your partner is holding a hammer and has a band-aid on their thumb.",
+            "Your partner smells like wet dog.",
+            "Your partner's voice is completely gone.",
+            "Your partner's hair is freezing and covered in snow."
+        ];
+
+        function generateWrapUp() {
+            const textEl = document.getElementById('detective-text');
+            const btn = document.getElementById('detective-gen-btn');
+            
+            btn.disabled = true;
+            btn.classList.add('opacity-50');
+            
+            let spins = 0;
+            const spinInt = setInterval(() => {
+                const randomQ = wrapUpData[Math.floor(Math.random() * wrapUpData.length)];
+                textEl.innerHTML = `<span class="text-rose-200 opacity-70">${randomQ}</span>`;
+                spins++;
+                
+                if(spins > 15) {
+                    clearInterval(spinInt);
+                    const finalQ = wrapUpData[Math.floor(Math.random() * wrapUpData.length)];
+                    textEl.innerHTML = `"${finalQ}"`;
+                    btn.disabled = false;
+                    btn.classList.remove('opacity-50');
+                }
+            }, 100);
+        }
+
+        // Init
+        window.onload = function() {
+            try { initGram1(); } catch(e){}
+            try { initGram3(); } catch(e){}
+            switchTab('tab0');
+        };
+    </script>
+</body>
+</html>
